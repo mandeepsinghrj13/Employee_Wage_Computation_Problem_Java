@@ -8,24 +8,27 @@ public class EmployeeWageProblemJava
 		int PartTimeHours = 4;
 		int FullDay = 8;
 		int WageParHour = 20;
-		int empPresent = 1;
-		int empPartTime = 2;
+		final int empPresent = 1;
+		final int empPartTime = 2;
+		int dailyWage = 0;
 		int empCheck = (int)Math.floor(Math.random() * 10) % 3;
-		if (empCheck == empPresent) 
+		switch (empCheck) 
 		{
-			int dailyWage = FullDay*WageParHour;
+		case empPresent:
+			dailyWage = FullDay*WageParHour;
 			System.out.println("Employee is Present");
 			System.out.println("Employee Daily Wage Is : "+ dailyWage);
-		}
-		else if(empCheck == empPartTime)
+			break;
+		case empPartTime:
 		{
-			int dailyWage = PartTimeHours*WageParHour;
+			dailyWage = PartTimeHours*WageParHour;
 			System.out.println("Employee Part Time is Present");
 			System.out.println("Employee Part Time Wage Is : "+ dailyWage);
+			break;
 		}
-		else 
-		{
-		System.out.println("Employee is Absent");
+		default:
+			System.out.println("Employee is Absent");
+			break;
 		}
 	}
 
